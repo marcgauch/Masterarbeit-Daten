@@ -1,0 +1,42 @@
+@startgantt Zeitplan Masterarbeit
+' SETUP
+printscale weekly
+today is colored in red
+Project starts 2025-10-06
+
+footer Printdate: %date("YYYY-MM-dd") (red line)
+ 
+' HOLIDAYS
+2025-11-25 to 2025-12-07 are named [Ferien]
+2025-11-25 to 2025-12-07 are colored in salmon
+
+2026-02-01 to 2026-02-07 are named [Skilager]
+2026-02-01 to 2026-02-07 are colored in salmon
+2026-02-01 to 2026-02-07 is closed 
+
+-- Proposal --
+[Kick off] requires 1 days
+
+then [Einlesen] requires 5 days
+[Letzter Abgabetermin Proposal] happens 2025-12-25
+
+
+
+-- Arbeit --
+
+
+'[Termine mit Validatoren planen] requires 5 days
+'[Code schreiben] requires 5 days
+'[Validierung] requires 5 days
+
+
+[Finalisieren Arbeit] starts at 2026-02-22 and requires 5 days
+
+[Abgabe Masterarbeit] happens 2026-02-27
+
+-- Verteidigung --
+[Vorbereitung Verteidigung] starts at 2026-02-28 and ends at 2026-03-23
+then [Verteidigungswoche] ends 2026-03-27
+[Verteidigung durch] happens 2026-03-27
+
+@endgantt
