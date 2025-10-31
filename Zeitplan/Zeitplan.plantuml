@@ -12,31 +12,45 @@ footer Printdate: %date("YYYY-MM-dd") (red line)
 
 2026-02-01 to 2026-02-07 are named [Skilager]
 2026-02-01 to 2026-02-07 are colored in salmon
-2026-02-01 to 2026-02-07 is closed 
+'2026-02-01 to 2026-02-07 is closed 
 
--- Proposal --
-[Kick off] requires 1 days
+-- Literaturrecherche --
+[Literaturrecherche] starts at 2025-10-06 and requires 20 days
 
-then [Einlesen] requires 5 days
-[Letzter Abgabetermin Proposal] happens 2025-12-25
+-- Welche Arten von Behinderungen gibt es --
+[Arten von Behinderungen recherchieren] starts at [Literaturrecherche]'s end and requires 10 days
+
+-- Filtern --
+[Relevante Behinderungen filtern] starts at [Arten von Behinderungen recherchieren]'s end and requires 5 days
+
+-- Für jede Behinderung eine Simulationsmethode entwicklen --
+[Erstgespräch mit Fachexperten oder Betroffenen] starts at [Relevante Behinderungen filtern]'s end and requires 10 days and is colored in orange
+[Simulationsmethoden entwickeln] starts at [Relevante Behinderungen filtern]'s end and requires 15 days
+
+-- Gruppiere der Behinderungen --
+[Behinderungen gruppieren] starts at [Simulationsmethoden entwickeln]'s end and requires 5 days
 
 
+-- Validieren mit Fachexperten oder Betroffenen --
+[Validierung mit Experten/Betroffenen] starts at [Behinderungen gruppieren]'s end and requires 10 days and is colored in orange
 
--- Arbeit --
+-- Bericht --
+[Bericht schreiben] starts at 2026-01-22 and requires 10 days
+then [Berichtskorrektur] starts at 2026-02-01 and ends at 2026-02-07 and is colored in Green
 
+then [Bericht finalisieren] starts at 2026-02-08 and requires 13 days
+[M4: Bericht abgeschlosen] happens at [Bericht finalisieren]'s end
 
-'[Termine mit Validatoren planen] requires 5 days
-'[Code schreiben] requires 5 days
-'[Validierung] requires 5 days
+-- Abgabe --
+[Abstract] starts at [Bericht finalisieren]'s end and requires 6 days
+[Berichtabgabe] starts at [Abstract]'s end and requires 1 days
+[M5: Masterarbeit abgegeben] happens 2026-02-27
 
-
-[Finalisieren Arbeit] starts at 2026-02-22 and requires 5 days
-
-[Abgabe Masterarbeit] happens 2026-02-27
-
--- Verteidigung --
-[Vorbereitung Verteidigung] starts at 2026-02-28 and ends at 2026-03-23
-then [Verteidigungswoche] ends 2026-03-27
-[Verteidigung durch] happens 2026-03-27
+legend
+Legend:
+|= Color  |= Task Type                 |
+|<#orange>| Abhängig von Fremdpersonen |
+|<#green> | Fremdleistung              |
+end legend
 
 @endgantt
