@@ -1,70 +1,81 @@
 const fs = require("node:fs/promises");
 const { execSync } = require("node:child_process");
+const { send } = require("node:process");
 
 const PLANTUML_JAR = "../util/plantuml-mit-1.2025.10.jar";
 
-const END_OF_STYLE = 9;
+const FILE_HEADER = `
+@startmindmap
+<style>
+mindmapDiagram{
+	.blue {
+		BackgroundColor LightBlue
+	}
+}
+</style>
+`;
 
-const fileWithOnlyBiggestCategories = [];
-const fileWithFirstLevelInPhysical = [];
-const fileWithOnlyPhiysical = [];
+const loadTree = async (filename) => {
+  const data = await fs.readFile(filename, { encoding: "utf8" });
+  return JSON.parse(data);
+};
 
-async function prepareFiles() {
-  try {
-    const data = await fs.readFile("mindmap.plantuml", { encoding: "utf8" });
-    let endOfPhysicalReached = false;
-    data.split("\n").forEach((line, index) => {
-      if (index <= END_OF_STYLE) {
-        fileWithOnlyBiggestCategories.push(line);
-        fileWithFirstLevelInPhysical.push(line);
-        fileWithOnlyPhiysical.push(line);
-        return;
-      }
-      if (line.includes("left side")) {
-        endOfPhysicalReached = true;
-        console.log("Reached end of physical symptoms at line", index + 1);
-        return;
-      }
-      if (!line.match(/^\t{2,}\*.*/)) {
-        fileWithOnlyBiggestCategories.push(line);
-      }
-      if (!endOfPhysicalReached) {
-        if (!line.match(/^\t{3,}\*.*/)) {
-          fileWithFirstLevelInPhysical.push(line);
-        }
-        fileWithOnlyPhiysical.push(line);
-      }
+function treeToMarkdown(
+  obj,
+  indent = 0,
+  depth,
+  nameOfRoot = null,
+  sendLeftAfter
+) {
+  const lines = [];
+  let prefix = "\t".repeat(indent + 1) + "* ";
 
-      console.log(`${index + 1}: ${line}`);
-    });
-    fileWithFirstLevelInPhysical.push("@enduml");
-    fileWithOnlyPhiysical.push("@enduml");
-  } catch (err) {
-    console.error(err);
+  if (nameOfRoot) {
+    lines.push("\t".repeat(indent) + "* " + nameOfRoot + " <<blue>>");
+    indent += 1;
+  } else {
+    prefix = "\t".repeat(indent) + "* ";
   }
+  if (depth > 0) {
+    for (const [index, [key, value]] of Object.entries(obj).entries()) {
+      lines.push(prefix + key + (indent === 0 ? " <<blue>>" : ""));
+
+      if (value && typeof value === "object" && Object.keys(value).length > 0) {
+        lines.push(
+          treeToMarkdown(value, indent + 1, depth - 1, null, sendLeftAfter)
+        );
+      }
+      if (indent === 1 && index === sendLeftAfter) {
+        lines.push("left side");
+      }
+    }
+  }
+  return lines.join("\n");
 }
 
-async function writeFiles() {
+const createContent = async (tree, settings) => {
+  const lines = [FILE_HEADER];
+  const markdownContent = treeToMarkdown(
+    tree,
+    0,
+    settings.depth,
+    settings.nameOfRoot,
+    settings.sendLeftAfter
+  );
+  lines.push(markdownContent);
+  lines.push("@endmindmap");
+  return lines.join("\n");
+};
+
+const createAndWriteFile = async (filename, tree, settings) => {
+  const content = await createContent(tree, settings);
   try {
-    await fs.writeFile(
-      "mindmap-only-biggest-categories.plantuml",
-      fileWithOnlyBiggestCategories.join("\n"),
-      { encoding: "utf8" }
-    );
-    await fs.writeFile(
-      "mindmap-first-level-in-physical.plantuml",
-      fileWithFirstLevelInPhysical.join("\n"),
-      { encoding: "utf8" }
-    );
-    await fs.writeFile(
-      "mindmap-only-physical.plantuml",
-      fileWithOnlyPhiysical.join("\n"),
-      { encoding: "utf8" }
-    );
+    await fs.writeFile(filename, content, { encoding: "utf8" });
+    console.log(`File ${filename} written successfully.`);
   } catch (err) {
-    console.error(err);
+    console.error(`Error writing file ${filename}:`, err);
   }
-}
+};
 
 function generateImageWithPlantuml(inputFile) {
   const cmd = `java -jar "${PLANTUML_JAR}" -tpng -o generated "${inputFile}" -DPLANTUML_LIMIT_SIZE=24384`;
@@ -83,28 +94,49 @@ function generateImageWithPlantuml(inputFile) {
   });
 }
 
-function generateImages() {
-  generateImageWithPlantuml("mindmap.plantuml");
-  generateImageWithPlantuml("mindmap-only-biggest-categories.plantuml");
-  generateImageWithPlantuml("mindmap-first-level-in-physical.plantuml");
-  generateImageWithPlantuml("mindmap-only-physical.plantuml");
-}
-
-async function cleanUp() {
+const deleteOldFile = async (filename) => {
   try {
-    await fs.unlink("mindmap-only-biggest-categories.plantuml");
-    await fs.unlink("mindmap-first-level-in-physical.plantuml");
-    await fs.unlink("mindmap-only-physical.plantuml");
-    console.log("Temporary files deleted.");
+    await fs.unlink(filename);
+    console.log(`Old file ${filename} deleted successfully.`);
   } catch (err) {
-    console.error(err);
+    if (err.code !== "ENOENT") {
+      console.error(`Error deleting file ${filename}:`, err);
+    }
   }
-}
-async function run() {
-  await prepareFiles();
-  await writeFiles();
-  generateImages();
-  await cleanUp();
-}
+};
 
+//const create = async (filename, tree, depth = 999, nameOfRoot = null) => {
+const create = async (filename, tree, settings = {}) => {
+  if (!filename || !tree) {
+    console.error("Filename and tree are required.");
+    return;
+  }
+  settings.depth = settings.depth || 999;
+  settings.nameOfRoot = settings.nameOfRoot || null;
+  settings.sendLeftAfter = settings.sendLeftAfter || 999;
+
+  await createAndWriteFile(`${filename}.plantuml`, tree, settings);
+  generateImageWithPlantuml(`${filename}.plantuml`);
+  await deleteOldFile(`${filename}.plantuml`);
+};
+
+const run = async () => {
+  const tree = await loadTree("mindmap.json");
+  create("mindmap", tree, { sendLeftAfter: 1 });
+
+  create(
+    "mindmap-only-physical",
+    tree["Einschränkungen"]["Körperliche Einschränkungen"],
+    { nameOfRoot: "Körperliche Einschränkungen", sendLeftAfter: 5 }
+  );
+  create(
+    "mindmap-first-level-in-physical",
+    tree["Einschränkungen"]["Körperliche Einschränkungen"],
+    { depth: 1, nameOfRoot: "Körperliche Einschränkungen" }
+  );
+  create("mindmap-only-biggest-categories", tree["Einschränkungen"], {
+    depth: 1,
+    nameOfRoot: "Einschränkungen",
+  });
+};
 run();
