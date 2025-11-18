@@ -1,0 +1,17 @@
+@startmindmap
+
+<style>
+mindmapDiagram{
+	.blue {
+		BackgroundColor LightBlue
+	}
+}
+</style>
+
+
+* Einschränkungen <<blue>>
+	* Körperliche Einschränkungen
+	* Geistige Einschränkungen
+	* Psychische Einschränkungen
+	* Soziale Einschränkungen
+@endmindmap
