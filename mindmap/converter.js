@@ -4,7 +4,6 @@ const { execSync } = require("node:child_process");
 const PLANTUML_JAR = "../util/plantuml-mit-1.2025.10.jar";
 
 const END_OF_STYLE = 9;
-const FIRST_NON_PHYSICAL_LINE = "* Geistige Einschränkungen";
 
 const fileWithOnlyBiggestCategories = [];
 const fileWithFirstLevelInPhysical = [];
@@ -21,12 +20,13 @@ async function prepareFiles() {
         fileWithOnlyPhiysical.push(line);
         return;
       }
-      if (!line.match(/^\t{2,}\*.*/)) {
-        fileWithOnlyBiggestCategories.push(line);
-      }
-      if (line.includes(FIRST_NON_PHYSICAL_LINE)) {
+      if (line.includes("left side")) {
         endOfPhysicalReached = true;
         console.log("Reached end of physical symptoms at line", index + 1);
+        return;
+      }
+      if (!line.match(/^\t{2,}\*.*/)) {
+        fileWithOnlyBiggestCategories.push(line);
       }
       if (!endOfPhysicalReached) {
         if (!line.match(/^\t{3,}\*.*/)) {
@@ -103,7 +103,7 @@ async function cleanUp() {
 async function run() {
   await prepareFiles();
   await writeFiles();
-  await generateImages();
+  generateImages();
   await cleanUp();
 }
 
