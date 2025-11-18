@@ -1,5 +1,7 @@
-const { writeFile } = require("node:fs");
 const fs = require("node:fs/promises");
+const { execSync } = require("node:child_process");
+
+const PLANTUML_JAR = "../util/plantuml-mit-1.2025.10.jar";
 
 const END_OF_STYLE = 9;
 const FIRST_NON_PHYSICAL_LINE = "* Geistige Einschränkungen";
@@ -64,9 +66,45 @@ async function writeFiles() {
   }
 }
 
+function generateImageWithPlantuml(inputFile) {
+  const cmd = `java -jar "${PLANTUML_JAR}" -tpng -o generated "${inputFile}" -DPLANTUML_LIMIT_SIZE=24384`;
+  execSync(cmd, (error, stdout, stderr) => {
+    if (error) {
+      console.error(
+        `Error generating image for ${inputFile}: ${error.message}`
+      );
+      return;
+    }
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return;
+    }
+    console.log(`Image generated for ${inputFile}: ${stdout}`);
+  });
+}
+
+function generateImages() {
+  generateImageWithPlantuml("mindmap.plantuml");
+  generateImageWithPlantuml("mindmap-only-biggest-categories.plantuml");
+  generateImageWithPlantuml("mindmap-first-level-in-physical.plantuml");
+  generateImageWithPlantuml("mindmap-only-physical.plantuml");
+}
+
+async function cleanUp() {
+  try {
+    await fs.unlink("mindmap-only-biggest-categories.plantuml");
+    await fs.unlink("mindmap-first-level-in-physical.plantuml");
+    await fs.unlink("mindmap-only-physical.plantuml");
+    console.log("Temporary files deleted.");
+  } catch (err) {
+    console.error(err);
+  }
+}
 async function run() {
   await prepareFiles();
   await writeFiles();
+  await generateImages();
+  await cleanUp();
 }
 
 run();
