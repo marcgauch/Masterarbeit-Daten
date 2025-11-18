@@ -1,0 +1,279 @@
+{
+  "Einschränkungen": {
+    "Körperliche Einschränkungen": {
+      "Sinne": {
+        "Sehen": {
+          "Blindheit": {
+            "Vollsändig": {},
+            "Teilweise": {}
+          },
+          "Fehlsichtigkeit": {
+            "Kurzsichtigkeit": {},
+            "Weitsichtigkeit": {},
+            "Altersweitsicht": {}
+          },
+          "Gesichtsfeldausfälle": {
+            "Tunnelblick": {},
+            "Skotome": {}
+          },
+          "Farbsehstörungen": {
+            "Achromasie": {},
+            "Monochromasie": {},
+            "Dichromasie": {},
+            "Protanopie": {},
+            "Deuteranopie": {},
+            "Tritanopie": {}
+          },
+          "Lichtempfindlichkeit": {},
+          "Nystagmus": {},
+          "Kontrastempfindlichkeitsstörungen": {},
+          "Nachtblindheit": {},
+          "Trockene Augen": {}
+        },
+        "Hören": {
+          "Schwerhörigkeit": {
+            "einseitig": {},
+            "beidseitig": {}
+          },
+          "Taubheit": {
+            "einseitig": {},
+            "beidseitig": {}
+          },
+          "Tinnitus": {
+            "einseitig": {},
+            "beidseitig": {}
+          },
+          "Störungen der auditiven Verarbeitung": {},
+          "Überempfindlichkeit gegen Lärm": {},
+          "Innenohrstörungen": {
+            "einseitig": {},
+            "beidseitig": {}
+          },
+          "Cochlea-Defekte": {
+            "einseitig": {},
+            "beidseitig": {}
+          }
+        },
+        "Riechen": {
+          "Anosomie": {},
+          "Hyposmie": {},
+          "Parsomie": {},
+          "Phantosmie": {}
+        },
+        "Schmecken": {
+          "Ageusie": {},
+          "Hypogeusie": {},
+          "Dysgeusie": {},
+          "Meallischer oder bitterer Dauergeschmack": {}
+        },
+        "Tasten": {
+          "Reduzierte Sensibilität": {},
+          "Überempflindlichkeit": {},
+          "Vermindertes Schmerzempfinden": {},
+          "Propriozeption": {},
+          "Störung der Körperwahrnehmung": {}
+        }
+      },
+      "Herzkreislauf und Stoffwechsel": {
+        "Herzinsuffizienz": {},
+        "Herzrhytmusstörungen": {},
+        "Bluthochdruck": {},
+        "Blutniederdruck": {},
+        "Periphere arterielle Verschlusskrankheit": {},
+        "Zytische Fibrose": {}
+      },
+      "Atmung": {
+        "Asthma bronchiale": {},
+        "Atemeinschränkung mit Belastungseinschränkung": {},
+        "Chronisch obstruktive Lungenerkrankung (COPD)": {},
+        "Lungenfibrose": {},
+        "Langzeit-Sauerstoffbedarf": {},
+        "Schlafapnoe": {}
+      },
+      "Verdauungssystem": {
+        "Kurzdarmsyndrom": {},
+        "Reizdarmsyndrom": {},
+        "Chronisch entzüngliche Darmerkranungen": {
+          "Morbus Cron": {},
+          "Colitis ulcerosa": {}
+        },
+        "Künstlicher Darmausgang": {}
+      },
+      "Endokrinologie": {
+        "Schilddrüsenerkrankungen": {},
+        "Nebennieren- oder Hypophysestörungen": {}
+      },
+      "Schmerzen und chronische Belastbarkeit": {
+        "Fibromyalgie": {},
+        "Migräne und chronische Kopfschmerzen": {},
+        "Komplexes regionales Schmerzsyndrom (CRPS)": {}
+      },
+      "Onkologische Folgen": {
+        "Tumorbedingte Funktionseinschränkungen": {},
+        "Postoperative oder therapiebedingte Langzeitbeschwerden": {}
+      },
+      "Temperatur- und Umweltregulation": {
+        "Kälteintoleranz": {},
+        "Wärmeintoleranz": {},
+        "Eingeschränkte Schweissregulation": {},
+        "Hyperhidrose": {}
+      },
+      "Autonome Funktionen": {
+        "Orthostatische Intoleranz (POTS)": {},
+        "Inkontinenz": {
+          "Harn": {},
+          "Stuhl": {}
+        },
+        "Sexualfunktionseinschränkungen": {
+          "Unfruchtbarkeit": {
+            "Männlich": {},
+            "Weiblich": {},
+            "Ungeklärt": {}
+          },
+          "Verminderte Fruchtbarkeit": {},
+          "Hormonelle Störungen": {},
+          "Errektionsstörungen": {},
+          "Ausbleibende Ejakulation": {},
+          "Dyspareunie": {},
+          "Vaginismus": {},
+          "Verminderte Libido": {
+            "Hormonell": {},
+            "Psychisch": {},
+            "Medikamentös": {}
+          },
+          "Störungen des Menstruationszyklus": {
+            "Amenorrhoe": {},
+            "Dysmenorrhoe": {},
+            "Sehr unregelmässige Zyklen": {}
+          },
+          "Folgen von Operationen oder Bestrahlung im Beckenbereich": {},
+          "Schwangerschaftsassozieriierte Einschränkungen": {
+            "Hyperemesis gravidarum": {},
+            "Beckenbodeninsuffizienz": {}
+          },
+          "Störung der Zeugungsfähigkeit": {
+            "genetisch": {},
+            "anatomisch": {},
+            "funktionele Ursachen": {}
+          }
+        }
+      },
+      "Gehvermögen": {
+        "Lähmungen": {
+          "teilweise": {},
+          "vollständig": {}
+        },
+        "Amputationen": {
+          "Bein": {},
+          "Fuss": {},
+          "teilweise": {}
+        },
+        "Gelenkarthrose und Entzündungen": {},
+        "Muskelerkrankungen (z. B. Muskeldystrophie)": {},
+        "Gleichgewichtsstörungen (vestibulär)": {},
+        "Chronische Schmerzen und Fatigue": {},
+        "Osteoporose": {},
+        "Fehlstellungen (z. B. Skoliose)": {}
+      },
+      "Sprechvermogen": {
+        "Artikulationsprobleme (z. B. Lippen-Kiefer-Gaumenspalte)": {},
+        "Stimmprobleme": {
+          "Heiserkeit": {},
+          "Stimmbandlähmung": {}
+        },
+        "Neurologische Sprachstörungen": {
+          "Aphasie": {},
+          "Dysarthrie": {}
+        },
+        "Mutismus (selektiv oder total)": {},
+        "Stottern": {},
+        "Sprechapraxie": {},
+        "Schluckstörungen (Dysphagie)": {}
+      },
+      "Fein- und grobmotorische Einschränkungen": {
+        "Tremor": {},
+        "Ataxie": {},
+        "Koordinationsstörungen": {},
+        "Spastiken": {},
+        "Neuropathien": {},
+        "Einschränkungen der Handfunktion": {
+          "Rheuma": {},
+          "Nervenschäden": {}
+        }
+      },
+      "Haut und Immunsystem": {
+        "Chronische Wunden": {},
+        "Allergien (schwer)": {},
+        "Autoimmunerkrankungen (z. B. MS, Lupus)": {},
+        "Anfälligkeit für Infektionen": {},
+        "Stark juckende Dermatosen": {
+          "Neurodermitis": {},
+          "Psoriasis": {}
+        },
+        "Verbrennungsfolgen mit Narbenkntrakturen": {}
+      }
+    },
+    "Geistige Einschränkungen": {
+      "Lernschwierigkeiten": {
+        "Lese-Rechtschreibstörung": {},
+        "Dyskalkulie": {},
+        "Langsamer Informationsverarbeitungsprozess": {}
+      },
+      "Gedächtnisprobleme": {
+        "Kurzzeitgedächtnis": {},
+        "Langzeitgedächtnis": {},
+        "Orientierungsprobleme": {}
+      },
+      "Konzentrationsstörungen": {
+        "ADHS": {},
+        "Reizüberflutung": {},
+        "Schwierigkeiten bei Aufgabenwechsel": {}
+      },
+      "Entwicklungsstörungen": {
+        "Intelligenzminderung": {},
+        "Kognitive Entwicklungsverzögerungen": {},
+        "Exekutive Dysfunktionen": {}
+      }
+    },
+    "Psychische Einschränkungen": {
+      "Angststörungen": {
+        "Panikstörung": {},
+        "Soziale Angst": {},
+        "Phobien": {}
+      },
+      "Depressionen": {
+        "Antriebsarmut": {},
+        "Schlaf- und Essstörungen": {},
+        "Suizidgedanken": {}
+      },
+      "Autismus-Spektrum": {
+        "Probleme mit sozialer Interaktion": {},
+        "Reizsensibilität": {},
+        "Stereotype Routinen": {}
+      },
+      "Traumafolgestörungen": {
+        "PTBS": {},
+        "Dissoziation": {},
+        "Triggerreaktionen": {}
+      }
+    },
+    "Soziale Einschränkungen": {
+      "Armut": {
+        "Finanzielle Abhängigkeit": {},
+        "Fehlender Zugang zu Bildung/Technik": {}
+      },
+      "Sprachbarrieren": {
+        "Migration/Asyl": {},
+        "Analphabetismus": {}
+      },
+      "Obdachlosigkeit": {
+        "Keine stabile Adresse": {},
+        "Ausschluss von Verwaltungsprozessen": {}
+      },
+      "Isolation": {
+        "Vereinsamung": {},
+        "Digitale Ausgrenzung": {}
+      }
+    }
+  }
+}
