@@ -1,5 +1,6 @@
 const fs = require("node:fs/promises");
 const { execSync } = require("node:child_process");
+const { send } = require("node:process");
 
 const PLANTUML_JAR = "../util/plantuml-mit-1.2025.10.jar";
 
@@ -54,12 +55,16 @@ function treeToMarkdown(
 
 const createContent = async (tree, settings) => {
   const lines = [FILE_HEADER];
+  const sendLeftAfter =
+    settings.sendLeftAfter === "half"
+      ? Math.floor(Object.keys(tree).length / 2) - 1
+      : settings.sendLeftAfter;
   const markdownContent = treeToMarkdown(
     tree,
     0,
     settings.depth,
     settings.nameOfRoot,
-    settings.sendLeftAfter
+    sendLeftAfter
   );
   lines.push(markdownContent);
   lines.push("@endmindmap");
@@ -146,11 +151,16 @@ const run = async () => {
   create(
     "mindmap-first-level-in-physical",
     tree["Einschränkungen"]["Körperliche Einschränkungen"],
-    { depth: 1, nameOfRoot: "Körperliche Einschränkungen" }
+    {
+      depth: 1,
+      nameOfRoot: "Körperliche Einschränkungen",
+      sendLeftAfter: "half",
+    }
   );
   create("mindmap-only-biggest-categories", tree["Einschränkungen"], {
     depth: 1,
     nameOfRoot: "Einschränkungen",
+    sendLeftAfter: 1,
   });
 
   // create mindmaps for every main category in Körperliche Einschränkungen
