@@ -2,7 +2,7 @@
 ' SETUP
 printscale weekly
 today is colored in red
-Project starts 2025-10-06
+Project starts 2025-12-06
 
 footer Printdate: %date("YYYY-MM-dd") (red line)
  
@@ -15,10 +15,12 @@ footer Printdate: %date("YYYY-MM-dd") (red line)
 '2026-02-01 to 2026-02-07 is closed 
 
 -- Literaturrecherche --
-[Literaturrecherche] starts at 2025-10-06 and requires 20 days
+[Literaturrecherche] requires 5 days
 
 -- Welche Arten von Behinderungen gibt es --
-[Arten von Behinderungen recherchieren] starts at [Literaturrecherche]'s end and requires 10 days
+[Arten von Behinderungen recherchieren] starts at [Literaturrecherche]'s end and requires 5 days
+[M1: Arten von Behinderungen recherchiert ] happens at [Arten von Behinderungen recherchieren]'s end
+
 
 -- Filtern --
 [Relevante Behinderungen filtern] starts at [Arten von Behinderungen recherchieren]'s end and requires 5 days
@@ -29,22 +31,27 @@ footer Printdate: %date("YYYY-MM-dd") (red line)
 
 -- Gruppiere der Behinderungen --
 [Behinderungen gruppieren] starts at [Simulationsmethoden entwickeln]'s end and requires 5 days
+[M2: Simulationsmethoden für relevante Behinderungen entwickelt ] happens at [Simulationsmethoden entwickeln]'s end
 
 
 -- Validieren mit Fachexperten oder Betroffenen --
 [Validierung mit Experten/Betroffenen] starts at [Behinderungen gruppieren]'s end and requires 10 days and is colored in orange
+
+[M3: Validatoren mit Experten abgeglichen] happens at [Validierung mit Experten/Betroffenen]'s end
 
 -- Bericht --
 [Bericht schreiben] starts at 2026-01-22 and requires 10 days
 then [Berichtskorrektur] starts at 2026-02-01 and ends at 2026-02-07 and is colored in Green
 
 then [Bericht finalisieren] starts at 2026-02-08 and requires 13 days
-[M4: Bericht abgeschlosen] happens at [Bericht finalisieren]'s end
 
 -- Abgabe --
 [Abstract] starts at [Bericht finalisieren]'s end and requires 6 days
 [Berichtabgabe] starts at [Abstract]'s end and requires 1 days
-[M5: Masterarbeit abgegeben] happens 2026-02-27
+[M4: Masterarbeit abgegeben] happens 2026-02-27
+
+
+
 
 legend
 Legend:
