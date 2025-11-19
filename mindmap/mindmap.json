@@ -182,7 +182,11 @@
         "Asymmetrische Gliedmassen": {},
         "Übergewicht": {},
         "Untergewicht": {},
-        "Hydrocephalus": {}
+        "Hydrocephalus": {},
+        "Fehlende Körpermerkmale": {
+          "Fingerabruck": {},
+          "Handvenen": {}
+        }
       },
       "Sprechvermogen": {
         "Artikulationsprobleme (z. B. Lippen-Kiefer-Gaumenspalte)": {},
@@ -219,7 +223,8 @@
           "Neurodermitis": {},
           "Psoriasis": {}
         },
-        "Verbrennungsfolgen mit Narbenkntrakturen": {}
+        "Verbrennungsfolgen mit Narbenkntrakturen": {},
+        "Haarausfall": {}
       }
     },
     "Geistige Einschränkungen": {
