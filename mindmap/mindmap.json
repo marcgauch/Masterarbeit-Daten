@@ -1,5 +1,4 @@
 {
-  "_date": "1970-01-01",
   "Einschränkungen": {
     "_date": "1970-01-01",
     "Körperliche Einschränkungen": {
@@ -10,7 +9,7 @@
           "_date": "1970-01-01",
           "Blindheit": {
             "_date": "1970-01-01",
-            "Vollsändig": {
+            "Vollständig": {
               "_date": "1970-01-01"
             },
             "Teilweise": {
@@ -689,7 +688,7 @@
         }
       },
       "Isolation": {
-        "_date": "1970-01-01",
+        "_date": "2970-01-01",
         "Vereinsamung": {
           "_date": "1970-01-01"
         },

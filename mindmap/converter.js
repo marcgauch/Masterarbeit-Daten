@@ -1,6 +1,5 @@
 const fs = require("node:fs/promises");
 const { execSync } = require("node:child_process");
-const { send } = require("node:process");
 
 const PLANTUML_JAR = "../util/plantuml-mit-1.2025.10.jar";
 
@@ -11,16 +10,99 @@ mindmapDiagram{
 	.root {
 		BackgroundColor LightBlue
 	}
+  .orange {
+    BackgroundColor orange
+  }
 }
 </style>
 `;
 
+const classesStartingFromThisDate = {
+  "0000-01-01": null,
+  "2025-11-26": "<<orange>>"
+}
+
+const POSSIBLE_PARAMETER = ['-keep-plantuml', '-generate-latex', '-ignore-date', '-debug', '-help']
+
+const PARAMS = ((args) => {
+  const argsBackupForDebug = [...args]
+
+  const settings = {
+    keep_plantuml: false,
+    generate_latex: false,
+    ignore_date: false,
+    debug: false,
+    help: false
+  };
+
+  POSSIBLE_PARAMETER.forEach(param => {
+
+    if (args.includes(param)) {
+      settings[param.slice(1).replaceAll(/-/g, "_")] = true
+      args = args.filter(e => e !== param)
+    }
+
+  });
+  if (settings.debug) {
+    console.log("=== ARGS ===")
+    console.log("=given=")
+    console.log(argsBackupForDebug)
+    console.log("=parsed=")
+    console.log(settings)
+  }
+
+
+  if (args.length > 0) {
+    const error = `Args contains unknown element${args.length > 1 ? "s" : ""}:\r\n${args.join("\r\n")}`
+    throw error
+  }
+
+  if (settings.debug) {
+    settings.keep_plantuml = true
+  }
+
+  return settings
+
+})(process.argv.slice(2))
+
+if (PARAMS.help) {
+  console.log("Possible Parameter:")
+  console.log(POSSIBLE_PARAMETER.join("\r\n"))
+  console.log("Terminated. Start without -help")
+  return
+}
+
+
+const getMatchingClassAccordingToDate = date => {
+  if (!date) return ""
+  if (date === '1970-01-01') return ""
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    const message = `${date} does not match YYYY-MM-DD`
+    throw message
+  };
+  let lastMatchingClass = null
+  for (key of Object.keys(classesStartingFromThisDate)) {
+    if (key > date) {
+      return lastMatchingClass
+    }
+    lastMatchingClass = classesStartingFromThisDate[key]
+  }
+  return lastMatchingClass
+}
+
 const loadTree = async (filename) => {
   const data = await fs.readFile(filename, { encoding: "utf8" });
+  if (PARAMS.debug) {
+    console.log()
+    console.log("loaded Tree:")
+    console.log("=== START OF TREE===")
+    console.log(data)
+    console.log("===END OF TREE===")
+  }
   return JSON.parse(data);
 };
 
-function treeToMarkdown(
+function treeToPlantUML(
   obj,
   indent = 0,
   depth,
@@ -38,12 +120,23 @@ function treeToMarkdown(
   }
   if (depth > 0) {
     for (const [index, [key, value]] of Object.entries(obj).entries()) {
-      lines.push(prefix + key + (indent === 0 ? " <<root>>" : ""));
+
+      if (key === "_date") continue
+
+      let classOfThisElement = (indent === 0)
+        ? "<<root>>"
+        : getMatchingClassAccordingToDate(value._date)
+
+      lines.push(prefix + key + classOfThisElement);
+
 
       if (value && typeof value === "object" && Object.keys(value).length > 0) {
-        lines.push(
-          treeToMarkdown(value, indent + 1, depth - 1, null, sendLeftAfter)
-        );
+        const nextNested = treeToPlantUML(value, indent + 1, depth - 1, null, sendLeftAfter)
+        if (nextNested.length > 0) {
+          lines.push(
+            nextNested
+          );
+        }
       }
       if (indent === 1 && index === sendLeftAfter) {
         lines.push("left side");
@@ -57,9 +150,9 @@ const createContent = async (tree, settings) => {
   const lines = [FILE_HEADER];
   const sendLeftAfter =
     settings.sendLeftAfter === "half"
-      ? Math.floor(Object.keys(tree).length / 2) - 1
+      ? Math.floor(Object.keys(tree).length / 2)
       : settings.sendLeftAfter;
-  const markdownContent = treeToMarkdown(
+  const markdownContent = treeToPlantUML(
     tree,
     0,
     settings.depth,
@@ -75,7 +168,9 @@ const createAndWriteFile = async (filename, tree, settings) => {
   const content = await createContent(tree, settings);
   try {
     await fs.writeFile(filename, content, { encoding: "utf8" });
-    console.log(`File ${filename} written successfully.`);
+    if (PARAMS.debug) {
+      console.log(`File ${filename} written successfully.`);
+    }
   } catch (err) {
     console.error(`Error writing file ${filename}:`, err);
   }
@@ -101,7 +196,9 @@ function generateImageWithPlantuml(inputFile, savePath = "") {
 const deleteOldFile = async (filename) => {
   try {
     await fs.unlink(filename);
-    console.log(`Old file ${filename} deleted successfully.`);
+    if (PARAMS.debug) {
+      console.log(`Old file ${filename} deleted successfully.`);
+    }
   } catch (err) {
     if (err.code !== "ENOENT") {
       console.error(`Error deleting file ${filename}:`, err);
@@ -115,19 +212,30 @@ const create = async (filename, tree, settings = {}) => {
     console.error("Filename and tree are required.");
     return;
   }
+
+
+  if (typeof (tree) === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(tree)) {
+    // empty iteration over the _date property..
+    return
+  }
+
   settings.depth = settings.depth ?? 999;
   settings.nameOfRoot = settings.nameOfRoot || null;
   settings.sendLeftAfter = settings.sendLeftAfter ?? 999;
 
   await createAndWriteFile(`${filename}.plantuml`, tree, settings);
   generateImageWithPlantuml(`${filename}.plantuml`, settings.savePath);
-  await deleteOldFile(`${filename}.plantuml`);
+  if (!PARAMS.keep_plantuml) {
+    await deleteOldFile(`${filename}.plantuml`);
+  }
 };
 
 const deleteOldOutputDir = async () => {
   try {
-    await fs.rmdir("generated", { recursive: true });
-    console.log("Old generated directory deleted successfully.");
+    await fs.rm("generated", { recursive: true });
+    if (PARAMS.debug) {
+      console.log("Old generated directory deleted successfully.");
+    }
   } catch (err) {
     if (err.code !== "ENOENT") {
       console.error("Error deleting generated directory:", err);
@@ -179,13 +287,15 @@ const run = async () => {
       sendLeftAfter: Math.floor(Object.keys(value).length / 2) - 1,
       savePath: "/physical-subcategories",
     });
-    console.log(`
+    if (PARAMS.generate_latex) {
+      console.log(`
 \\begin{figure}[H]
   \\caption{Mindmap der Elemente der Unterkategorie \\enquote{${key}} der körperlichen Einschränkungen}
   \\includegraphics[width=\\textwidth]{content/00_assets/mindmaps/physical-subcategories/mindmap-physical-${keyCleaned}.png}
   \\note{Eigene Abbildung}
   \\label{fig:mindmap-physical-${keyCleaned}}
 \\end{figure}`);
+    }
   }
 
   // create mindmaps for every category in physical > Sinne
@@ -204,13 +314,16 @@ const run = async () => {
       sendLeftAfter: Math.floor(Object.keys(value).length / 2) - 1,
       savePath: "/physical-subcategories/sinne",
     });
-    console.log(`
+    if (PARAMS.generate_latex) {
+      console.log(`
 \\begin{figure}[H]
   \\caption{Mindmap der Elemente der Unterkategorie \\enquote{${key}} der körperlichen Einschränkungen im Bereich Sinne}
   \\includegraphics[width=\\textwidth]{content/00_assets/mindmaps/physical-subcategories/sinne/mindmap-physical-sinne-${keyCleaned}.png}
   \\note{Eigene Abbildung}
   \\label{fig:mindmap-physical-sinne-${keyCleaned}}
 \\end{figure}`);
+    }
   }
 };
+
 run();
