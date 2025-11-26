@@ -1,294 +1,701 @@
 {
+  "_date": "1970-01-01",
   "Einschränkungen": {
+    "_date": "1970-01-01",
     "Körperliche Einschränkungen": {
+      "_date": "1970-01-01",
       "Sinne": {
+        "_date": "1970-01-01",
         "Sehen": {
+          "_date": "1970-01-01",
           "Blindheit": {
-            "Vollsändig": {},
-            "Teilweise": {}
+            "_date": "1970-01-01",
+            "Vollsändig": {
+              "_date": "1970-01-01"
+            },
+            "Teilweise": {
+              "_date": "1970-01-01"
+            }
           },
           "Fehlsichtigkeit": {
-            "Kurzsichtigkeit": {},
-            "Weitsichtigkeit": {},
-            "Altersweitsicht": {}
+            "_date": "1970-01-01",
+            "Kurzsichtigkeit": {
+              "_date": "1970-01-01"
+            },
+            "Weitsichtigkeit": {
+              "_date": "1970-01-01"
+            },
+            "Altersweitsicht": {
+              "_date": "1970-01-01"
+            }
           },
           "Gesichtsfeldausfälle": {
-            "Tunnelblick": {},
-            "Skotome": {}
+            "_date": "1970-01-01",
+            "Tunnelblick": {
+              "_date": "1970-01-01"
+            },
+            "Skotome": {
+              "_date": "1970-01-01"
+            }
           },
           "Farbsehstörungen": {
-            "Achromasie": {},
-            "Monochromasie": {},
-            "Dichromasie": {},
-            "Protanopie": {},
-            "Deuteranopie": {},
-            "Tritanopie": {}
+            "_date": "1970-01-01",
+            "Achromasie": {
+              "_date": "1970-01-01"
+            },
+            "Monochromasie": {
+              "_date": "1970-01-01"
+            },
+            "Dichromasie": {
+              "_date": "1970-01-01"
+            },
+            "Protanopie": {
+              "_date": "1970-01-01"
+            },
+            "Deuteranopie": {
+              "_date": "1970-01-01"
+            },
+            "Tritanopie": {
+              "_date": "1970-01-01"
+            }
           },
-          "Lichtempfindlichkeit": {},
-          "Nystagmus": {},
-          "Kontrastempfindlichkeitsstörungen": {},
-          "Nachtblindheit": {},
-          "Trockene Augen": {}
+          "Lichtempfindlichkeit": {
+            "_date": "1970-01-01"
+          },
+          "Nystagmus": {
+            "_date": "1970-01-01"
+          },
+          "Kontrastempfindlichkeitsstörungen": {
+            "_date": "1970-01-01"
+          },
+          "Nachtblindheit": {
+            "_date": "1970-01-01"
+          },
+          "Trockene Augen": {
+            "_date": "1970-01-01"
+          }
         },
         "Hören": {
+          "_date": "1970-01-01",
           "Schwerhörigkeit": {
-            "einseitig": {},
-            "beidseitig": {}
+            "_date": "1970-01-01",
+            "einseitig": {
+              "_date": "1970-01-01"
+            },
+            "beidseitig": {
+              "_date": "1970-01-01"
+            }
           },
           "Taubheit": {
-            "einseitig": {},
-            "beidseitig": {}
+            "_date": "1970-01-01",
+            "einseitig": {
+              "_date": "1970-01-01"
+            },
+            "beidseitig": {
+              "_date": "1970-01-01"
+            }
           },
           "Tinnitus": {
-            "einseitig": {},
-            "beidseitig": {}
+            "_date": "1970-01-01",
+            "einseitig": {
+              "_date": "1970-01-01"
+            },
+            "beidseitig": {
+              "_date": "1970-01-01"
+            }
           },
-          "Störungen der auditiven Verarbeitung": {},
-          "Überempfindlichkeit gegen Lärm": {},
+          "Störungen der auditiven Verarbeitung": {
+            "_date": "1970-01-01"
+          },
+          "Überempfindlichkeit gegen Lärm": {
+            "_date": "1970-01-01"
+          },
           "Innenohrstörungen": {
-            "einseitig": {},
-            "beidseitig": {}
+            "_date": "1970-01-01",
+            "einseitig": {
+              "_date": "1970-01-01"
+            },
+            "beidseitig": {
+              "_date": "1970-01-01"
+            }
           },
           "Cochlea-Defekte": {
-            "einseitig": {},
-            "beidseitig": {}
+            "_date": "1970-01-01",
+            "einseitig": {
+              "_date": "1970-01-01"
+            },
+            "beidseitig": {
+              "_date": "1970-01-01"
+            }
           }
         },
         "Riechen": {
-          "Anosomie": {},
-          "Hyposmie": {},
-          "Parsomie": {},
-          "Phantosmie": {}
+          "_date": "1970-01-01",
+          "Anosomie": {
+            "_date": "1970-01-01"
+          },
+          "Hyposmie": {
+            "_date": "1970-01-01"
+          },
+          "Parsomie": {
+            "_date": "1970-01-01"
+          },
+          "Phantosmie": {
+            "_date": "1970-01-01"
+          }
         },
         "Schmecken": {
-          "Ageusie": {},
-          "Hypogeusie": {},
-          "Dysgeusie": {},
-          "Meallischer oder bitterer Dauergeschmack": {}
+          "_date": "1970-01-01",
+          "Ageusie": {
+            "_date": "1970-01-01"
+          },
+          "Hypogeusie": {
+            "_date": "1970-01-01"
+          },
+          "Dysgeusie": {
+            "_date": "1970-01-01"
+          },
+          "Meallischer oder bitterer Dauergeschmack": {
+            "_date": "1970-01-01"
+          }
         },
         "Tasten": {
-          "Reduzierte Sensibilität": {},
-          "Überempflindlichkeit": {},
-          "Vermindertes Schmerzempfinden": {},
-          "Propriozeption": {},
-          "Störung der Körperwahrnehmung": {}
+          "_date": "1970-01-01",
+          "Reduzierte Sensibilität": {
+            "_date": "1970-01-01"
+          },
+          "Überempflindlichkeit": {
+            "_date": "1970-01-01"
+          },
+          "Vermindertes Schmerzempfinden": {
+            "_date": "1970-01-01"
+          },
+          "Propriozeption": {
+            "_date": "1970-01-01"
+          },
+          "Störung der Körperwahrnehmung": {
+            "_date": "1970-01-01"
+          }
         }
       },
       "Herzkreislauf und Stoffwechsel": {
-        "Herzinsuffizienz": {},
-        "Herzrhytmusstörungen": {},
-        "Bluthochdruck": {},
-        "Blutniederdruck": {},
-        "Periphere arterielle Verschlusskrankheit": {},
-        "Zytische Fibrose": {}
+        "_date": "1970-01-01",
+        "Herzinsuffizienz": {
+          "_date": "1970-01-01"
+        },
+        "Herzrhytmusstörungen": {
+          "_date": "1970-01-01"
+        },
+        "Bluthochdruck": {
+          "_date": "1970-01-01"
+        },
+        "Blutniederdruck": {
+          "_date": "1970-01-01"
+        },
+        "Periphere arterielle Verschlusskrankheit": {
+          "_date": "1970-01-01"
+        },
+        "Zytische Fibrose": {
+          "_date": "1970-01-01"
+        }
       },
       "Atmung": {
-        "Asthma bronchiale": {},
-        "Atemeinschränkung mit Belastungseinschränkung": {},
-        "Chronisch obstruktive Lungenerkrankung (COPD)": {},
-        "Lungenfibrose": {},
-        "Langzeit-Sauerstoffbedarf": {},
-        "Schlafapnoe": {}
+        "_date": "1970-01-01",
+        "Asthma bronchiale": {
+          "_date": "1970-01-01"
+        },
+        "Atemeinschränkung mit Belastungseinschränkung": {
+          "_date": "1970-01-01"
+        },
+        "Chronisch obstruktive Lungenerkrankung (COPD)": {
+          "_date": "1970-01-01"
+        },
+        "Lungenfibrose": {
+          "_date": "1970-01-01"
+        },
+        "Langzeit-Sauerstoffbedarf": {
+          "_date": "1970-01-01"
+        },
+        "Schlafapnoe": {
+          "_date": "1970-01-01"
+        }
       },
       "Verdauungssystem": {
-        "Kurzdarmsyndrom": {},
-        "Reizdarmsyndrom": {},
-        "Chronisch entzüngliche Darmerkranungen": {
-          "Morbus Cron": {},
-          "Colitis ulcerosa": {}
+        "_date": "1970-01-01",
+        "Kurzdarmsyndrom": {
+          "_date": "1970-01-01"
         },
-        "Künstlicher Darmausgang": {}
+        "Reizdarmsyndrom": {
+          "_date": "1970-01-01"
+        },
+        "Chronisch entzüngliche Darmerkranungen": {
+          "_date": "1970-01-01",
+          "Morbus Cron": {
+            "_date": "1970-01-01"
+          },
+          "Colitis ulcerosa": {
+            "_date": "1970-01-01"
+          }
+        },
+        "Künstlicher Darmausgang": {
+          "_date": "1970-01-01"
+        }
       },
       "Endokrinologie": {
-        "Schilddrüsenerkrankungen": {},
-        "Nebennieren- oder Hypophysestörungen": {}
+        "_date": "1970-01-01",
+        "Schilddrüsenerkrankungen": {
+          "_date": "1970-01-01"
+        },
+        "Nebennieren- oder Hypophysestörungen": {
+          "_date": "1970-01-01"
+        }
       },
       "Schmerzen und chronische Belastbarkeit": {
-        "Fibromyalgie": {},
-        "Migräne und chronische Kopfschmerzen": {},
-        "Komplexes regionales Schmerzsyndrom (CRPS)": {}
+        "_date": "1970-01-01",
+        "Fibromyalgie": {
+          "_date": "1970-01-01"
+        },
+        "Migräne und chronische Kopfschmerzen": {
+          "_date": "1970-01-01"
+        },
+        "Komplexes regionales Schmerzsyndrom (CRPS)": {
+          "_date": "1970-01-01"
+        }
       },
       "Onkologische Folgen": {
-        "Tumorbedingte Funktionseinschränkungen": {},
-        "Postoperative oder therapiebedingte Langzeitbeschwerden": {}
+        "_date": "1970-01-01",
+        "Tumorbedingte Funktionseinschränkungen": {
+          "_date": "1970-01-01"
+        },
+        "Postoperative oder therapiebedingte Langzeitbeschwerden": {
+          "_date": "1970-01-01"
+        }
       },
       "Temperatur- und Umweltregulation": {
-        "Kälteintoleranz": {},
-        "Wärmeintoleranz": {},
-        "Eingeschränkte Schweissregulation": {},
-        "Hyperhidrose": {}
+        "_date": "1970-01-01",
+        "Kälteintoleranz": {
+          "_date": "1970-01-01"
+        },
+        "Wärmeintoleranz": {
+          "_date": "1970-01-01"
+        },
+        "Eingeschränkte Schweissregulation": {
+          "_date": "1970-01-01"
+        },
+        "Hyperhidrose": {
+          "_date": "1970-01-01"
+        }
       },
       "Autonome Funktionen": {
-        "Orthostatische Intoleranz (POTS)": {},
+        "_date": "1970-01-01",
+        "Orthostatische Intoleranz (POTS)": {
+          "_date": "1970-01-01"
+        },
         "Inkontinenz": {
-          "Harn": {},
-          "Stuhl": {}
+          "_date": "1970-01-01",
+          "Harn": {
+            "_date": "1970-01-01"
+          },
+          "Stuhl": {
+            "_date": "1970-01-01"
+          }
         },
         "Sexualfunktionseinschränkungen": {
+          "_date": "1970-01-01",
           "Unfruchtbarkeit": {
-            "Männlich": {},
-            "Weiblich": {},
-            "Ungeklärt": {}
+            "_date": "1970-01-01",
+            "Männlich": {
+              "_date": "1970-01-01"
+            },
+            "Weiblich": {
+              "_date": "1970-01-01"
+            },
+            "Ungeklärt": {
+              "_date": "1970-01-01"
+            }
           },
-          "Verminderte Fruchtbarkeit": {},
-          "Hormonelle Störungen": {},
-          "Errektionsstörungen": {},
-          "Ausbleibende Ejakulation": {},
-          "Dyspareunie": {},
-          "Vaginismus": {},
+          "Verminderte Fruchtbarkeit": {
+            "_date": "1970-01-01"
+          },
+          "Hormonelle Störungen": {
+            "_date": "1970-01-01"
+          },
+          "Errektionsstörungen": {
+            "_date": "1970-01-01"
+          },
+          "Ausbleibende Ejakulation": {
+            "_date": "1970-01-01"
+          },
+          "Dyspareunie": {
+            "_date": "1970-01-01"
+          },
+          "Vaginismus": {
+            "_date": "1970-01-01"
+          },
           "Verminderte Libido": {
-            "Hormonell": {},
-            "Psychisch": {},
-            "Medikamentös": {}
+            "_date": "1970-01-01",
+            "Hormonell": {
+              "_date": "1970-01-01"
+            },
+            "Psychisch": {
+              "_date": "1970-01-01"
+            },
+            "Medikamentös": {
+              "_date": "1970-01-01"
+            }
           },
           "Störungen des Menstruationszyklus": {
-            "Amenorrhoe": {},
-            "Dysmenorrhoe": {},
-            "Sehr unregelmässige Zyklen": {}
+            "_date": "1970-01-01",
+            "Amenorrhoe": {
+              "_date": "1970-01-01"
+            },
+            "Dysmenorrhoe": {
+              "_date": "1970-01-01"
+            },
+            "Sehr unregelmässige Zyklen": {
+              "_date": "1970-01-01"
+            }
           },
-          "Folgen von Operationen oder Bestrahlung im Beckenbereich": {},
+          "Folgen von Operationen oder Bestrahlung im Beckenbereich": {
+            "_date": "1970-01-01"
+          },
           "Schwangerschaftsassozieriierte Einschränkungen": {
-            "Hyperemesis gravidarum": {},
-            "Beckenbodeninsuffizienz": {}
+            "_date": "1970-01-01",
+            "Hyperemesis gravidarum": {
+              "_date": "1970-01-01"
+            },
+            "Beckenbodeninsuffizienz": {
+              "_date": "1970-01-01"
+            }
           },
           "Störung der Zeugungsfähigkeit": {
-            "genetisch": {},
-            "anatomisch": {},
-            "funktionele Ursachen": {}
+            "_date": "1970-01-01",
+            "genetisch": {
+              "_date": "1970-01-01"
+            },
+            "anatomisch": {
+              "_date": "1970-01-01"
+            },
+            "funktionele Ursachen": {
+              "_date": "1970-01-01"
+            }
           }
         }
       },
       "Gehvermögen": {
+        "_date": "1970-01-01",
         "Lähmungen": {
-          "teilweise": {},
-          "vollständig": {}
+          "_date": "1970-01-01",
+          "teilweise": {
+            "_date": "1970-01-01"
+          },
+          "vollständig": {
+            "_date": "1970-01-01"
+          }
         },
         "Amputationen": {
-          "Bein": {},
-          "Fuss": {},
-          "teilweise": {}
+          "_date": "1970-01-01",
+          "Bein": {
+            "_date": "1970-01-01"
+          },
+          "Fuss": {
+            "_date": "1970-01-01"
+          },
+          "teilweise": {
+            "_date": "1970-01-01"
+          }
         },
-        "Gelenkarthrose und Entzündungen": {},
-        "Muskelerkrankungen (z. B. Muskeldystrophie)": {},
-        "Gleichgewichtsstörungen (vestibulär)": {},
-        "Chronische Schmerzen und Fatigue": {},
-        "Osteoporose": {},
-        "Fehlstellungen (z. B. Skoliose)": {}
+        "Gelenkarthrose und Entzündungen": {
+          "_date": "1970-01-01"
+        },
+        "Muskelerkrankungen (z. B. Muskeldystrophie)": {
+          "_date": "1970-01-01"
+        },
+        "Gleichgewichtsstörungen (vestibulär)": {
+          "_date": "1970-01-01"
+        },
+        "Chronische Schmerzen und Fatigue": {
+          "_date": "1970-01-01"
+        },
+        "Osteoporose": {
+          "_date": "1970-01-01"
+        },
+        "Fehlstellungen (z. B. Skoliose)": {
+          "_date": "1970-01-01"
+        }
       },
       "Biometrische Merkmale": {
-        "Extrem kurze oder lange Gliedmassen": {},
-        "Kleinwuchs": {},
-        "Riesengrösse": {},
-        "Asymmetrische Gliedmassen": {},
-        "Übergewicht": {},
-        "Untergewicht": {},
-        "Hydrocephalus": {},
+        "_date": "1970-01-01",
+        "Extrem kurze oder lange Gliedmassen": {
+          "_date": "1970-01-01"
+        },
+        "Kleinwuchs": {
+          "_date": "1970-01-01"
+        },
+        "Riesengrösse": {
+          "_date": "1970-01-01"
+        },
+        "Asymmetrische Gliedmassen": {
+          "_date": "1970-01-01"
+        },
+        "Übergewicht": {
+          "_date": "1970-01-01"
+        },
+        "Untergewicht": {
+          "_date": "1970-01-01"
+        },
+        "Hydrocephalus": {
+          "_date": "1970-01-01"
+        },
         "Fehlende Körpermerkmale": {
-          "Fingerabruck": {},
-          "Handvenen": {}
+          "_date": "1970-01-01",
+          "Fingerabruck": {
+            "_date": "1970-01-01"
+          },
+          "Handvenen": {
+            "_date": "1970-01-01"
+          }
         }
       },
       "Sprechvermogen": {
-        "Artikulationsprobleme (z. B. Lippen-Kiefer-Gaumenspalte)": {},
+        "_date": "1970-01-01",
+        "Artikulationsprobleme (z. B. Lippen-Kiefer-Gaumenspalte)": {
+          "_date": "1970-01-01"
+        },
         "Stimmprobleme": {
-          "Heiserkeit": {},
-          "Stimmbandlähmung": {}
+          "_date": "1970-01-01",
+          "Heiserkeit": {
+            "_date": "1970-01-01"
+          },
+          "Stimmbandlähmung": {
+            "_date": "1970-01-01"
+          }
         },
         "Neurologische Sprachstörungen": {
-          "Aphasie": {},
-          "Dysarthrie": {}
+          "_date": "1970-01-01",
+          "Aphasie": {
+            "_date": "1970-01-01"
+          },
+          "Dysarthrie": {
+            "_date": "1970-01-01"
+          }
         },
-        "Mutismus (selektiv oder total)": {},
-        "Stottern": {},
-        "Sprechapraxie": {},
-        "Schluckstörungen (Dysphagie)": {}
+        "Mutismus (selektiv oder total)": {
+          "_date": "1970-01-01"
+        },
+        "Stottern": {
+          "_date": "1970-01-01"
+        },
+        "Sprechapraxie": {
+          "_date": "1970-01-01"
+        },
+        "Schluckstörungen (Dysphagie)": {
+          "_date": "1970-01-01"
+        }
       },
       "Fein- und grobmotorische Einschränkungen": {
-        "Tremor": {},
-        "Ataxie": {},
-        "Koordinationsstörungen": {},
-        "Spastiken": {},
-        "Neuropathien": {},
+        "_date": "1970-01-01",
+        "Tremor": {
+          "_date": "1970-01-01"
+        },
+        "Ataxie": {
+          "_date": "1970-01-01"
+        },
+        "Koordinationsstörungen": {
+          "_date": "1970-01-01"
+        },
+        "Spastiken": {
+          "_date": "1970-01-01"
+        },
+        "Neuropathien": {
+          "_date": "1970-01-01"
+        },
         "Einschränkungen der Handfunktion": {
-          "Rheuma": {},
-          "Nervenschäden": {}
+          "_date": "1970-01-01",
+          "Rheuma": {
+            "_date": "1970-01-01"
+          },
+          "Nervenschäden": {
+            "_date": "1970-01-01"
+          }
         }
       },
       "Haut und Immunsystem": {
-        "Chronische Wunden": {},
-        "Allergien (schwer)": {},
-        "Autoimmunerkrankungen (z. B. MS, Lupus)": {},
-        "Anfälligkeit für Infektionen": {},
-        "Stark juckende Dermatosen": {
-          "Neurodermitis": {},
-          "Psoriasis": {}
+        "_date": "1970-01-01",
+        "Chronische Wunden": {
+          "_date": "1970-01-01"
         },
-        "Verbrennungsfolgen mit Narbenkntrakturen": {},
-        "Haarausfall": {},
-        "Nagelpilz": {},
-        "Warzen": {}
+        "Allergien (schwer)": {
+          "_date": "1970-01-01"
+        },
+        "Autoimmunerkrankungen (z. B. MS, Lupus)": {
+          "_date": "1970-01-01"
+        },
+        "Anfälligkeit für Infektionen": {
+          "_date": "1970-01-01"
+        },
+        "Stark juckende Dermatosen": {
+          "_date": "1970-01-01",
+          "Neurodermitis": {
+            "_date": "1970-01-01"
+          },
+          "Psoriasis": {
+            "_date": "1970-01-01"
+          }
+        },
+        "Verbrennungsfolgen mit Narbenkntrakturen": {
+          "_date": "1970-01-01"
+        },
+        "Haarausfall": {
+          "_date": "1970-01-01"
+        },
+        "Nagelpilz": {
+          "_date": "1970-01-01"
+        },
+        "Warzen": {
+          "_date": "1970-01-01"
+        }
       }
     },
     "Geistige Einschränkungen": {
+      "_date": "1970-01-01",
       "Lernschwierigkeiten": {
-        "Lese-Rechtschreibstörung": {},
-        "Dyskalkulie": {},
-        "Langsamer Informationsverarbeitungsprozess": {}
+        "_date": "1970-01-01",
+        "Lese-Rechtschreibstörung": {
+          "_date": "1970-01-01"
+        },
+        "Dyskalkulie": {
+          "_date": "1970-01-01"
+        },
+        "Langsamer Informationsverarbeitungsprozess": {
+          "_date": "1970-01-01"
+        }
       },
       "Gedächtnisprobleme": {
-        "Kurzzeitgedächtnis": {},
-        "Langzeitgedächtnis": {},
-        "Orientierungsprobleme": {}
+        "_date": "1970-01-01",
+        "Kurzzeitgedächtnis": {
+          "_date": "1970-01-01"
+        },
+        "Langzeitgedächtnis": {
+          "_date": "1970-01-01"
+        },
+        "Orientierungsprobleme": {
+          "_date": "1970-01-01"
+        }
       },
       "Konzentrationsstörungen": {
-        "ADHS": {},
-        "Reizüberflutung": {},
-        "Schwierigkeiten bei Aufgabenwechsel": {}
+        "_date": "1970-01-01",
+        "ADHS": {
+          "_date": "1970-01-01"
+        },
+        "Reizüberflutung": {
+          "_date": "1970-01-01"
+        },
+        "Schwierigkeiten bei Aufgabenwechsel": {
+          "_date": "1970-01-01"
+        }
       },
       "Entwicklungsstörungen": {
-        "Intelligenzminderung": {},
-        "Kognitive Entwicklungsverzögerungen": {},
-        "Exekutive Dysfunktionen": {}
+        "_date": "1970-01-01",
+        "Intelligenzminderung": {
+          "_date": "1970-01-01"
+        },
+        "Kognitive Entwicklungsverzögerungen": {
+          "_date": "1970-01-01"
+        },
+        "Exekutive Dysfunktionen": {
+          "_date": "1970-01-01"
+        }
       }
     },
     "Psychische Einschränkungen": {
+      "_date": "1970-01-01",
       "Angststörungen": {
-        "Panikstörung": {},
-        "Soziale Angst": {},
-        "Phobien": {}
+        "_date": "1970-01-01",
+        "Panikstörung": {
+          "_date": "1970-01-01"
+        },
+        "Soziale Angst": {
+          "_date": "1970-01-01"
+        },
+        "Phobien": {
+          "_date": "1970-01-01"
+        }
       },
       "Depressionen": {
-        "Antriebsarmut": {},
-        "Schlaf- und Essstörungen": {},
-        "Suizidgedanken": {}
+        "_date": "1970-01-01",
+        "Antriebsarmut": {
+          "_date": "1970-01-01"
+        },
+        "Schlaf- und Essstörungen": {
+          "_date": "1970-01-01"
+        },
+        "Suizidgedanken": {
+          "_date": "1970-01-01"
+        }
       },
       "Autismus-Spektrum": {
-        "Probleme mit sozialer Interaktion": {},
-        "Reizsensibilität": {},
-        "Stereotype Routinen": {}
+        "_date": "1970-01-01",
+        "Probleme mit sozialer Interaktion": {
+          "_date": "1970-01-01"
+        },
+        "Reizsensibilität": {
+          "_date": "1970-01-01"
+        },
+        "Stereotype Routinen": {
+          "_date": "1970-01-01"
+        }
       },
       "Traumafolgestörungen": {
-        "PTBS": {},
-        "Dissoziation": {},
-        "Triggerreaktionen": {}
+        "_date": "1970-01-01",
+        "PTBS": {
+          "_date": "1970-01-01"
+        },
+        "Dissoziation": {
+          "_date": "1970-01-01"
+        },
+        "Triggerreaktionen": {
+          "_date": "1970-01-01"
+        }
       }
     },
     "Soziale Einschränkungen": {
+      "_date": "1970-01-01",
       "Armut": {
-        "Finanzielle Abhängigkeit": {},
-        "Fehlender Zugang zu Bildung/Technik": {}
+        "_date": "1970-01-01",
+        "Finanzielle Abhängigkeit": {
+          "_date": "1970-01-01"
+        },
+        "Fehlender Zugang zu Bildung/Technik": {
+          "_date": "1970-01-01"
+        }
       },
       "Sprachbarrieren": {
-        "Migration/Asyl": {},
-        "Analphabetismus": {}
+        "_date": "1970-01-01",
+        "Migration/Asyl": {
+          "_date": "1970-01-01"
+        },
+        "Analphabetismus": {
+          "_date": "1970-01-01"
+        }
       },
       "Obdachlosigkeit": {
-        "Keine stabile Adresse": {},
-        "Ausschluss von Verwaltungsprozessen": {}
+        "_date": "1970-01-01",
+        "Keine stabile Adresse": {
+          "_date": "1970-01-01"
+        },
+        "Ausschluss von Verwaltungsprozessen": {
+          "_date": "1970-01-01"
+        }
       },
       "Isolation": {
-        "Vereinsamung": {},
-        "Digitale Ausgrenzung": {}
+        "_date": "1970-01-01",
+        "Vereinsamung": {
+          "_date": "1970-01-01"
+        },
+        "Digitale Ausgrenzung": {
+          "_date": "1970-01-01"
+        }
       }
     }
   }
