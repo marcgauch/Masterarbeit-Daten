@@ -19,85 +19,88 @@ mindmapDiagram{
 
 const classesStartingFromThisDate = {
   "0000-01-01": null,
-  "2025-11-26": "<<orange>>"
-}
+  "2025-11-26": "<<orange>>",
+};
 
-const POSSIBLE_PARAMETER = ['-keep-plantuml', '-generate-latex', '-ignore-date', '-debug', '-help']
+const POSSIBLE_PARAMETER = [
+  "-keep-plantuml",
+  "-generate-latex",
+  "-ignore-date",
+  "-debug",
+  "-help",
+];
 
 const PARAMS = ((args) => {
-  const argsBackupForDebug = [...args]
+  const argsBackupForDebug = [...args];
 
   const settings = {
     keep_plantuml: false,
     generate_latex: false,
     ignore_date: false,
     debug: false,
-    help: false
+    help: false,
   };
 
-  POSSIBLE_PARAMETER.forEach(param => {
-
+  POSSIBLE_PARAMETER.forEach((param) => {
     if (args.includes(param)) {
-      settings[param.slice(1).replaceAll(/-/g, "_")] = true
-      args = args.filter(e => e !== param)
+      settings[param.slice(1).replaceAll(/-/g, "_")] = true;
+      args = args.filter((e) => e !== param);
     }
-
   });
   if (settings.debug) {
-    console.log("=== ARGS ===")
-    console.log("=given=")
-    console.log(argsBackupForDebug)
-    console.log("=parsed=")
-    console.log(settings)
+    console.log("=== ARGS ===");
+    console.log("=given=");
+    console.log(argsBackupForDebug);
+    console.log("=parsed=");
+    console.log(settings);
   }
 
-
   if (args.length > 0) {
-    const error = `Args contains unknown element${args.length > 1 ? "s" : ""}:\r\n${args.join("\r\n")}`
-    throw error
+    const error = `Args contains unknown element${
+      args.length > 1 ? "s" : ""
+    }:\r\n${args.join("\r\n")}`;
+    throw error;
   }
 
   if (settings.debug) {
-    settings.keep_plantuml = true
+    settings.keep_plantuml = true;
   }
 
-  return settings
-
-})(process.argv.slice(2))
+  return settings;
+})(process.argv.slice(2));
 
 if (PARAMS.help) {
-  console.log("Possible Parameter:")
-  console.log(POSSIBLE_PARAMETER.join("\r\n"))
-  console.log("Terminated. Start without -help")
-  return
+  console.log("Possible Parameter:");
+  console.log(POSSIBLE_PARAMETER.join("\r\n"));
+  console.log("Terminated. Start without -help");
+  return;
 }
 
-
-const getMatchingClassAccordingToDate = date => {
-  if (!date) return ""
-  if (date === '1970-01-01') return ""
+const getMatchingClassAccordingToDate = (date) => {
+  if (!date) return "";
+  if (date === "1970-01-01") return "";
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-    const message = `${date} does not match YYYY-MM-DD`
-    throw message
-  };
-  let lastMatchingClass = null
+    const message = `${date} does not match YYYY-MM-DD`;
+    throw message;
+  }
+  let lastMatchingClass = null;
   for (key of Object.keys(classesStartingFromThisDate)) {
     if (key > date) {
-      return lastMatchingClass
+      return lastMatchingClass;
     }
-    lastMatchingClass = classesStartingFromThisDate[key]
+    lastMatchingClass = classesStartingFromThisDate[key];
   }
-  return lastMatchingClass
-}
+  return lastMatchingClass;
+};
 
 const loadTree = async (filename) => {
   const data = await fs.readFile(filename, { encoding: "utf8" });
   if (PARAMS.debug) {
-    console.log()
-    console.log("loaded Tree:")
-    console.log("=== START OF TREE===")
-    console.log(data)
-    console.log("===END OF TREE===")
+    console.log();
+    console.log("loaded Tree:");
+    console.log("=== START OF TREE===");
+    console.log(data);
+    console.log("===END OF TREE===");
   }
   return JSON.parse(data);
 };
@@ -120,22 +123,25 @@ function treeToPlantUML(
   }
   if (depth > 0) {
     for (const [index, [key, value]] of Object.entries(obj).entries()) {
+      if (key === "_date") continue;
 
-      if (key === "_date") continue
-
-      let classOfThisElement = (indent === 0)
-        ? "<<root>>"
-        : getMatchingClassAccordingToDate(value._date)
+      let classOfThisElement =
+        indent === 0
+          ? "<<root>>"
+          : getMatchingClassAccordingToDate(value._date);
 
       lines.push(prefix + key + classOfThisElement);
 
-
       if (value && typeof value === "object" && Object.keys(value).length > 0) {
-        const nextNested = treeToPlantUML(value, indent + 1, depth - 1, null, sendLeftAfter)
+        const nextNested = treeToPlantUML(
+          value,
+          indent + 1,
+          depth - 1,
+          null,
+          sendLeftAfter
+        );
         if (nextNested.length > 0) {
-          lines.push(
-            nextNested
-          );
+          lines.push(nextNested);
         }
       }
       if (indent === 1 && index === sendLeftAfter) {
@@ -150,7 +156,7 @@ const createContent = async (tree, settings) => {
   const lines = [FILE_HEADER];
   const sendLeftAfter =
     settings.sendLeftAfter === "half"
-      ? Math.ceil(Object.keys(tree).length / 2) -1
+      ? Math.ceil(Object.keys(tree).length / 2) - 1
       : settings.sendLeftAfter;
   const markdownContent = treeToPlantUML(
     tree,
@@ -200,10 +206,9 @@ const create = async (filename, tree, settings = {}) => {
     return;
   }
 
-
-  if (typeof (tree) === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(tree)) {
+  if (typeof tree === "string" && /^\d{4}-\d{2}-\d{2}$/.test(tree)) {
     // empty iteration over the _date property..
-    return
+    return;
   }
 
   settings.depth = settings.depth ?? 999;
@@ -229,24 +234,21 @@ const deleteDir = async (path) => {
 
 const createDir = async (path) => {
   try {
-    await fs.mkdir(path, { recursive: true })
+    await fs.mkdir(path, { recursive: true });
     if (PARAMS.debug) {
       console.log(`Directory ${path} created`);
-
     }
   } catch (err) {
     if (err.code !== "ENOENT") {
       console.error(`Error creating directory '${dir}'`, err);
     }
   }
-}
-
-
+};
 
 const run = async () => {
   await deleteDir("generated");
-  await deleteDir("plantuml")
-  await createDir("plantuml")
+  await deleteDir("plantuml");
+  await createDir("plantuml");
   const tree = await loadTree("mindmap.json");
   create("mindmap", tree["Einschränkungen"], {
     nameOfRoot: "Einschränkungen",
@@ -327,7 +329,7 @@ const run = async () => {
     }
   }
   if (!PARAMS.keep_plantuml) {
-    deleteDir("plantuml")
+    deleteDir("plantuml");
   }
 };
 
