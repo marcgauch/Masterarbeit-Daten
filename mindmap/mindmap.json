@@ -196,6 +196,9 @@
         },
         "Zytische Fibrose": {
           "_date": "1970-01-01"
+        },
+        "Schwindel beim Aufstehen": {
+          "_date": "2025-11-27"
         }
       },
       "Atmung": {
@@ -379,6 +382,12 @@
               "_date": "1970-01-01"
             }
           }
+        },
+        "Diarrhoe": {
+          "_date": "2025-11-27"
+        },
+        "Obstipation": {
+          "_date": "2025-11-27"
         }
       },
       "Gehvermögen": {
@@ -517,6 +526,21 @@
           "Nervenschäden": {
             "_date": "1970-01-01"
           }
+        },
+        "Unsichere Bewegungen": {
+          "_date": "2025-11-27"
+        },
+        "Verzögerte Bewegungen": {
+          "_date": "2025-11-27"
+        },
+        "Schlechte Koordination": {
+          "_date": "2025-11-27"
+        },
+        "Verminderte Präzision": {
+          "_date": "2025-11-27"
+        },
+        "Schwacher Griff": {
+          "_date": "2025-11-27"
         }
       },
       "Haut und Immunsystem": {
@@ -553,6 +577,9 @@
         },
         "Warzen": {
           "_date": "1970-01-01"
+        },
+        "Starker Körpergeruch": {
+          "_date": "2025-11-27"
         }
       }
     },
@@ -604,6 +631,12 @@
         },
         "Exekutive Dysfunktionen": {
           "_date": "1970-01-01"
+        },
+        "Sprachentwicklungsstörungen": {
+          "_date": "2025-11-27"
+        },
+        "Motorische Entwicklungsstörungen": {
+          "_date": "2025-11-27"
         }
       }
     },
@@ -619,6 +652,9 @@
         },
         "Phobien": {
           "_date": "1970-01-01"
+        },
+        "Generalisierte Angststörung": {
+          "_date": "2025-11-27"
         }
       },
       "Depressionen": {
@@ -631,6 +667,18 @@
         },
         "Suizidgedanken": {
           "_date": "1970-01-01"
+        },
+        "Konzentrationsprobleme": {
+          "_date": "2025-11-27"
+        },
+        "Gefühl der Hoffnungslosigkeit": {
+          "_date": "2025-11-27"
+        },
+        "Niedriges Selbstwertgefühl": {
+          "_date": "2025-11-27"
+        },
+        "Sozialer Rückzug": {
+          "_date": "2025-11-27"
         }
       },
       "Autismus-Spektrum": {
@@ -665,7 +713,7 @@
         "Finanzielle Abhängigkeit": {
           "_date": "1970-01-01"
         },
-        "Fehlender Zugang zu Bildung/Technik": {
+        "Fehlender Zugang zu Bilng/Technik": {
           "_date": "1970-01-01"
         }
       },
