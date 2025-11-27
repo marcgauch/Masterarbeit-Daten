@@ -150,7 +150,7 @@ const createContent = async (tree, settings) => {
   const lines = [FILE_HEADER];
   const sendLeftAfter =
     settings.sendLeftAfter === "half"
-      ? Math.floor(Object.keys(tree).length / 2)
+      ? Math.ceil(Object.keys(tree).length / 2) -1
       : settings.sendLeftAfter;
   const markdownContent = treeToPlantUML(
     tree,
@@ -177,7 +177,7 @@ const createAndWriteFile = async (filename, tree, settings) => {
 };
 
 function generateImageWithPlantuml(inputFile, savePath = "") {
-  const cmd = `java -jar "${PLANTUML_JAR}" -tpng -o generated${savePath} "${inputFile}" -DPLANTUML_LIMIT_SIZE=24384`;
+  const cmd = `java -jar "${PLANTUML_JAR}" -tpng -o ../generated${savePath} "${inputFile}" -DPLANTUML_LIMIT_SIZE=24384`;
   execSync(cmd, (error, stdout, stderr) => {
     if (error) {
       console.error(
@@ -192,19 +192,6 @@ function generateImageWithPlantuml(inputFile, savePath = "") {
     console.log(`Image generated for ${inputFile}: ${stdout}`);
   });
 }
-
-const deleteOldFile = async (filename) => {
-  try {
-    await fs.unlink(filename);
-    if (PARAMS.debug) {
-      console.log(`Old file ${filename} deleted successfully.`);
-    }
-  } catch (err) {
-    if (err.code !== "ENOENT") {
-      console.error(`Error deleting file ${filename}:`, err);
-    }
-  }
-};
 
 //const create = async (filename, tree, depth = 999, nameOfRoot = null) => {
 const create = async (filename, tree, settings = {}) => {
@@ -223,38 +210,53 @@ const create = async (filename, tree, settings = {}) => {
   settings.nameOfRoot = settings.nameOfRoot || null;
   settings.sendLeftAfter = settings.sendLeftAfter ?? 999;
 
-  await createAndWriteFile(`${filename}.plantuml`, tree, settings);
-  generateImageWithPlantuml(`${filename}.plantuml`, settings.savePath);
-  if (!PARAMS.keep_plantuml) {
-    await deleteOldFile(`${filename}.plantuml`);
-  }
+  await createAndWriteFile(`plantuml/${filename}.plantuml`, tree, settings);
+  generateImageWithPlantuml(`plantuml/${filename}.plantuml`, settings.savePath);
 };
 
-const deleteOldOutputDir = async () => {
+const deleteDir = async (path) => {
   try {
-    await fs.rm("generated", { recursive: true });
+    await fs.rm(path, { recursive: true });
     if (PARAMS.debug) {
-      console.log("Old generated directory deleted successfully.");
+      console.log(`Old dir '${path}' deleted successfully.`);
     }
   } catch (err) {
     if (err.code !== "ENOENT") {
-      console.error("Error deleting generated directory:", err);
+      console.error(`Error deleting directory '${dir}'`, err);
     }
   }
 };
 
+const createDir = async (path) => {
+  try {
+    await fs.mkdir(path, { recursive: true })
+    if (PARAMS.debug) {
+      console.log(`Directory ${path} created`);
+
+    }
+  } catch (err) {
+    if (err.code !== "ENOENT") {
+      console.error(`Error creating directory '${dir}'`, err);
+    }
+  }
+}
+
+
+
 const run = async () => {
-  await deleteOldOutputDir();
+  await deleteDir("generated");
+  await deleteDir("plantuml")
+  await createDir("plantuml")
   const tree = await loadTree("mindmap.json");
   create("mindmap", tree["Einschränkungen"], {
     nameOfRoot: "Einschränkungen",
-    sendLeftAfter: 0,
+    sendLeftAfter: 1,
   });
 
   create(
     "mindmap-only-physical",
     tree["Einschränkungen"]["Körperliche Einschränkungen"],
-    { nameOfRoot: "Körperliche Einschränkungen", sendLeftAfter: 5 }
+    { nameOfRoot: "Körperliche Einschränkungen", sendLeftAfter: 6 }
   );
   create(
     "mindmap-first-level-in-physical",
@@ -268,7 +270,7 @@ const run = async () => {
   create("mindmap-only-biggest-categories", tree["Einschränkungen"], {
     depth: 1,
     nameOfRoot: "Einschränkungen",
-    sendLeftAfter: 1,
+    sendLeftAfter: 2,
   });
 
   // create mindmaps for every main category in Körperliche Einschränkungen
@@ -284,7 +286,7 @@ const run = async () => {
       .replace(/ß/g, "ss");
     create(`mindmap-physical-${keyCleaned}`, value, {
       nameOfRoot: key,
-      sendLeftAfter: Math.floor(Object.keys(value).length / 2) - 1,
+      sendLeftAfter: "half",
       savePath: "/physical-subcategories",
     });
     if (PARAMS.generate_latex) {
@@ -311,7 +313,7 @@ const run = async () => {
       .replace(/ß/g, "ss");
     create(`mindmap-physical-sinne-${keyCleaned}`, value, {
       nameOfRoot: key,
-      sendLeftAfter: Math.floor(Object.keys(value).length / 2) - 1,
+      sendLeftAfter: "half",
       savePath: "/physical-subcategories/sinne",
     });
     if (PARAMS.generate_latex) {
@@ -323,6 +325,9 @@ const run = async () => {
   \\label{fig:mindmap-physical-sinne-${keyCleaned}}
 \\end{figure}`);
     }
+  }
+  if (!PARAMS.keep_plantuml) {
+    deleteDir("plantuml")
   }
 };
 
