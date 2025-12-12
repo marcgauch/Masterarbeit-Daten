@@ -19,7 +19,7 @@ mindmapDiagram{
 
 const classesStartingFromThisDate = {
   "0000-01-01": null,
-  "2025-11-26": "<<orange>>",
+  "2025-12-06": "<<orange>>",
 };
 
 const POSSIBLE_PARAMETER = [
